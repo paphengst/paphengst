@@ -15,9 +15,13 @@ ax.plot(range(100))
 fig.savefig("graph.png")
 """
 
-#LaTeX output nach z.tex
+#LaTeX output nach 243.tex
 
-resultsdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../results/z.tex")
+versuchsnummer = "243"
+resultsdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../results/")
+texfile = os.path.join(resultsdir, versuchsnummer + ".tex")
+pdffile = os.path.join(resultsdir, versuchsnummer + ".pdf")
+pngfile = os.path.join(resultsdir, versuchsnummer + ".png")
 
 s = r"""\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,15 +30,17 @@ s = r"""\documentclass[12pt]{article}
 \begin{document}
 
 blabla
+
 \end{document}
 """
-text_file = open(resultsdir, "w")
+text_file = open(texfile, "w")
 text_file.write(s)
 text_file.close()
 
-#pdflatex z.tex
-os.system("pdflatex z.tex")
+#PDF erzeugen
+os.system("pdflatex --output-directory=" + resultsdir + " " + texfile)
 
-#convert -density 150 z.pdf z.png
+#PNGs erzeugen
+os.system("convert -density 150 " + pdffile + " " + pngfile)
 #ergibt z-0.png, z-1.png, ..., z-33.png
-os.system("convert -density 150 z.pdf z.png")
+#anzahl der PNGs rausfinden und HTML entsprechend erzeugen:

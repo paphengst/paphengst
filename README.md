@@ -1,6 +1,6 @@
 # Hol dir den Hengst!
 
-Bei PythonAnywhere unter [https://www.pythonanywhere.com/](https://www.pythonanywhere.com/) einen kostenloses Konto erstellen. Dort eine Bash-Konsole starten und folgende Befehle ausführen:
+Bei PythonAnywhere unter [https://www.pythonanywhere.com/](https://www.pythonanywhere.com/) ein kostenloses Konto erstellen. Dort eine Bash-Konsole starten und folgende Befehle ausführen:
 
     cd $HOME
     git clone --depth=1 https://github.com/paphengst/paphengst

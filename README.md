@@ -4,7 +4,7 @@ Bei PythonAnywhere unter [https://www.pythonanywhere.com/](https://www.pythonany
 
     cd $HOME
     git clone --depth=1 https://github.com/paphengst/paphengst
-    sh paphengst/ichbrauchdenhengst.sh
+    python3 paphengst/ichbrauchdenhengst.py
 
 Sollte dann ganz grob etwa so aussehen:
 
@@ -16,3 +16,5 @@ Sollte dann ganz grob etwa so aussehen:
     remote: Total 11 (delta 0), reused 0 (delta 0), pack-reused 0
     Unpacking objects: 100% (11/11), done.
     Checking connectivity... done.
+    $ python3 paphengst/ichbrauchdenhengst.py
+    

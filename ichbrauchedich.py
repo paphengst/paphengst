@@ -16,3 +16,4 @@ filehandle = open(os.path.join(uploaddir, "!!! IN DIESEN ORDNER KOMMEN DIE DATEN
 filehandle.close()
 
 # Den Link zum HTML-Menü ausgeben
+print("Fertig")

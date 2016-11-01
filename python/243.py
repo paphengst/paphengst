@@ -1,4 +1,5 @@
 import os
+import re
 
 #Beispielcode für matplotlib-Plots
 """
@@ -44,3 +45,6 @@ os.system("pdflatex --output-directory=" + resultsdir + " " + texfile)
 os.system("convert -density 150 " + pdffile + " " + pngfile)
 #ergibt z-0.png, z-1.png, ..., z-33.png
 #anzahl der PNGs rausfinden und HTML entsprechend erzeugen:
+versuchsnummer = "z"
+items = ['a.txt', 'z.png', 'z-0.png', 'z-33.PNG', 'zdad-0.png', 'z-0-0.png', 'zdd.png', 'za.png']
+matches = re.findall(versuchsnummer + r"(?:-[0-9]*?)?\.png", "".join(items), re.IGNORECASE)

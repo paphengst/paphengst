@@ -20,5 +20,5 @@ username = os.path.basename(os.environ["HOME"])
 s = "Link zum HTML-Menü für PythonAnywhere Benutzer \"" + username + "\":"
 print("\n\n" + s + "\n" + "-" * len(s))
 print(r"https://www.pythonanywhere.com/user/" + username +  r"/files/home/" + username + r"/paphengst/html/menu.html")
-print("(Am besten per Copy'n'paste in einem neuen Browser-Tab einfügen und öffnen.)")
+print("(Am besten per Copy'n'paste in einem neuen Browser-Tab einfügen, öffnen und als Bookmark speichern.)")
 print("-" * len(s) + "\n")

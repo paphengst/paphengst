@@ -16,4 +16,7 @@ filehandle = open(os.path.join(uploaddir, "!!! IN DIESEN ORDNER KOMMEN DIE DATEN
 filehandle.close()
 
 # Den Link zum HTML-Menü ausgeben
-print("Fertig")
+s = r"Link zum HTML-Menü für PythonAnywhere Benutzer \"" + os.getlogin() + r"\":"
+print(s)
+print("-" * len(s))
+print(r"https://www.pythonanywhere.com/user/" + os.getlogin() +  r"/files/home/" + os.getlogin() + r"/paphengst/html/menu.html")

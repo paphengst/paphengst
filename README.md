@@ -1,20 +1,14 @@
 # Hol dir den Hengst!
 
-Bei PythonAnywhere unter [https://www.pythonanywhere.com/](https://www.pythonanywhere.com/) ein kostenloses Konto erstellen. Dort eine Bash-Konsole starten und folgende Befehle ausführen:
+Bei PythonAnywhere unter [https://www.pythonanywhere.com](https://www.pythonanywhere.com) ein kostenloses Konto erstellen. Dort eine Bash-Konsole starten und folgende Befehle ausführen:
 
     cd $HOME
     git clone --depth=1 https://github.com/paphengst/paphengst
-    python3 paphengst/ichbrauchdenhengst.py
+    python3 paphengst/ichbrauchedich.py
 
-Sollte dann ganz grob etwa so aussehen:
+Als Ergebnis wird ein Link zum HTML-Menü ausgegeben. Dort finden sich weitere Informationen.
 
-    $ cd $HOME
-    $ git clone --depth=1 https://github.com/paphengst/paphengst
-    Cloning into 'paphengst'...
-    remote: Counting objects: 11, done.
-    remote: Compressing objects: 100% (10/10), done.
-    remote: Total 11 (delta 0), reused 0 (delta 0), pack-reused 0
-    Unpacking objects: 100% (11/11), done.
-    Checking connectivity... done.
-    $ python3 paphengst/ichbrauchdenhengst.py
-    
+Um für einen bereits existierenden lokalen Klon alle Updates zu installieren muss folgendes Skript ausgeführt werden:
+
+    cd $HOME
+    python3 paphengst/machdichfrisch.py

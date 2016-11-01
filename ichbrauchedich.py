@@ -39,11 +39,14 @@ skripte = [
 
 # Die Template-HTML einlesen
 htmldir = os.path.join(maindir, "paphengst/html/")
+filehandle = open(os.path.join(htmldir, "template.html"), "r")
+templatehtml = filehandle.read()
+filehandle.close()
 
 # Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
-menuhtml = ""
+menuhtml = templatehtml.replace("<title></title>", "<title>Menü (PAP Hengst)</title>")
 for skriptnummer, bezeichnung in skripte:
-    menuhtml += "<a class=\"menuitem\">" + str(skriptnummer) + "<span>" + bezeichnung + "</span></a>\n"
+    menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\">" + str(skriptnummer) + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
 
 # Das HTML für die "menu.html" speichern
 filehandle = open(os.path.join(htmldir, "menu.html"), "w")

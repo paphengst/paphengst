@@ -1,8 +1,4 @@
-# HTML-Menü
-
-Das HTML-Menü in `menu.html` enthält die Auflistung der zur Verfügung stehenden Versuchsauswertungen und den passenden Informationen dazu.
-
-# Verwendete Grafiken
+# Verwendete Grafiken für das HTML-Menü
 
 Quellen der Grafiken:
 

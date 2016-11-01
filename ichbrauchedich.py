@@ -15,6 +15,41 @@ os.makedirs(uploaddir, exist_ok=True)
 filehandle = open(os.path.join(uploaddir, "!!! IN DIESEN ORDNER KOMMEN DIE DATEN FÜR DIE AUSWERTUNG !!!"), "w")
 filehandle.close()
 
+# Skripte aufzählen
+skripte = [
+    [211, "Gekoppelte Pendel"],
+    [212, "Zähigkeit von Flüssigkeiten"],
+    [213, "Kreisel"],
+    [221, "Adiabatenkoeffizient"],
+    [222, "Heißuftmotor"],
+    [223, "Boltzmannkonstante Teil I Brownsche Bewegung"],
+    [232, "Michelson-Interferometer"],
+    [233, "Fourieroptik"],
+    [234, "Lichtquellen und Gitterspektroskopie"],
+    [241, "Wechselstrom- eigenschaften von RCL-Gliedern"],
+    [242, "Spannungsverstärkung"],
+    [243, "Boltzmannkonstante Teil II Thermisches Rauschen"],
+    [245, "Induktion"],
+    [251, "Statistik"],
+    [252, "Aktivierung mit thermischen Neutronen"],
+    [253, "Absorption von α- β- und γ-Strahlen"],
+    [255, "Röntgenspektrometer"],
+    [256, "Röntgenfluoreszenz"],
+    ]
+
+# Die Template-HTML einlesen
+htmldir = os.path.join(maindir, "paphengst/html/")
+
+# Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
+menuhtml = ""
+for skriptnummer, bezeichnung in skripte:
+    menuhtml += "<a class=\"menuitem\">" + str(skriptnummer) + "<span>" + bezeichnung + "</span></a>\n"
+
+# Das HTML für die "menu.html" speichern
+filehandle = open(os.path.join(htmldir, "menu.html"), "w")
+filehandle.write(menuhtml)
+filehandle.close()
+
 # Den Link zum HTML-Menü ausgeben
 username = os.path.basename(os.environ["HOME"])
 s = "Link zum HTML-Menü für PythonAnywhere Benutzer \"" + username + "\":"

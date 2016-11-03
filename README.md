@@ -1,6 +1,6 @@
 # Hol dir den Hengst!
 
-Der PAP Hengst hilft, wo er kann.
+Der PAP Hengst hilft, wo er kann. Und das alles __ohne__ Jupyter Notebook. :stuck_out_tongue_winking_eye:
 
 ---
 
@@ -22,4 +22,5 @@ Der PAP Hengst hilft, wo er kann.
   
       cd $HOME
       python3 paphengst/machdichfrisch.py
-      
+
+---

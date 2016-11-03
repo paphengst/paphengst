@@ -12,7 +12,7 @@ pythondir = os.path.join(maindir, "paphengst/python/")
 pythonfiles = os.listdir(pythondir)
 pythonfile = ""
 for item in pythonfiles:
-    if sys.argv[1] == item.replace(".py", "") and os.path.isfile(os.path.join(pythondir, item)):
+    if (sys.argv[1] if len(sys.argv) > 1 else "") == item.replace(".py", "") and os.path.isfile(os.path.join(pythondir, item)):
         pythonfile = os.path.join(pythondir, item)
         print("Datei \"" + pythonfile + "\" gefunden")
         break

@@ -17,13 +17,14 @@ for item in pythonfiles:
         print("Datei \"" + pythonfile + "\" gefunden")
         break
 
-#
+# Überprüfen ob Skript gefunden
 if pythonfile == "":
     print("Nicht gefunden")
 
-# Datei ausführen
-print("Ausführung wird startet")
-os.system("python3 " + pythonfile)
+else:
+    # Datei ausführen
+    print("Ausführung wird startet")
+    os.system("python3 " + pythonfile)
 
-# Meldung ausgeben, dass beendet
-print("Ausführung ist beendet")
+    # Meldung ausgeben, dass beendet
+    print("Ausführung ist beendet")

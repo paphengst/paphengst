@@ -5,10 +5,10 @@ from paphengstlib import *
 os.makedirs(resultsdir, exist_ok=True)
 
 # Ordner "uploads" erstellen, wo die Daten für die Auswertung rein sollen
-os.makedirs(uploaddir, exist_ok=True)
+os.makedirs(uploadsdir, exist_ok=True)
 
 # Zur Erinnerung eine Datei mit Namen "!!! IN DIESEN ORDNER KOMMEN DIE DATEN FÜR DIE AUSWERTUNG !!!" erstellen
-filehandle = open(os.path.join(uploaddir, "!!! IN DIESEN ORDNER KOMMEN DIE DATEN FÜR DIE AUSWERTUNG !!!"), "w")
+filehandle = open(os.path.join(uploadsdir, "!!! IN DIESEN ORDNER KOMMEN DIE DATEN FÜR DIE AUSWERTUNG !!!"), "w")
 filehandle.close()
 
 # Skripte aufzählen, die im Menü erscheinen sollen

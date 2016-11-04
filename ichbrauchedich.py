@@ -15,26 +15,26 @@ os.makedirs(uploaddir, exist_ok=True)
 filehandle = open(os.path.join(uploaddir, "!!! IN DIESEN ORDNER KOMMEN DIE DATEN FÜR DIE AUSWERTUNG !!!"), "w")
 filehandle.close()
 
-# Skripte aufzählen
+# Skripte aufzählen, die im Menü erscheinen sollen
 skripte = [
-    [211, "Gekoppelte Pendel"],
-    [212, "Zähigkeit von Flüssigkeiten"],
-    [213, "Kreisel"],
-    [221, "Adiabatenkoeffizient"],
-    [222, "Heißuftmotor"],
-    [223, "Boltzmannkonstante Teil I Brownsche Bewegung"],
-    [232, "Michelson-Interferometer"],
-    [233, "Fourieroptik"],
-    [234, "Lichtquellen und Gitterspektroskopie"],
-    [241, "Wechselstrom- eigenschaften von RCL-Gliedern"],
-    [242, "Spannungsverstärkung"],
-    [243, "Boltzmannkonstante Teil II Thermisches Rauschen"],
-    [245, "Induktion"],
-    [251, "Statistik"],
-    [252, "Aktivierung mit thermischen Neutronen"],
-    [253, "Absorption von α- β- und γ-Strahlen"],
-    [255, "Röntgenspektrometer"],
-    [256, "Röntgenfluoreszenz"],
+    ["211", "Gekoppelte Pendel"],
+    ["212", "Zähigkeit von Flüssigkeiten"],
+    ["213", "Kreisel"],
+    ["221", "Adiabatenkoeffizient"],
+    ["222", "Heißuftmotor"],
+    ["223", "Boltzmannkonstante Teil I Brownsche Bewegung"],
+    ["232", "Michelson-Interferometer"],
+    ["233", "Fourieroptik"],
+    ["234", "Lichtquellen und Gitterspektroskopie"],
+    ["241", "Wechselstrom- eigenschaften von RCL-Gliedern"],
+    ["242", "Spannungsverstärkung"],
+    ["243", "Boltzmannkonstante Teil II Thermisches Rauschen"],
+    ["245", "Induktion"],
+    ["251", "Statistik"],
+    ["252", "Aktivierung mit thermischen Neutronen"],
+    ["253", "Absorption von α- β- und γ-Strahlen"],
+    ["255", "Röntgenspektrometer"],
+    ["256", "Röntgenfluoreszenz"],
     ]
 
 # Die Template-HTML einlesen
@@ -56,17 +56,31 @@ menuhtml = menuhtml.replace("<!-- snipsnap -->", menuhtmlnotizen + "\n<!-- snips
 
 # Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
 for skriptnummer, bezeichnung in skripte:
-    menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\">" + str(skriptnummer) + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
+    menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
 
 # Das HTML für die "menu.html" speichern
 filehandle = open(os.path.join(htmldir, "menu.html"), "w")
 filehandle.write(menuhtml)
 filehandle.close()
 
+# HTML für die Ergebnis-HTMLs aus dem Template erzeugen
+ergebnishtml = templatehtml.replace("<title></title>", "<title>Versuch (PAP Hengst)</title>")
+
+# Für jeden Versuch eine leere Ergebnis-HTML speichern (wobei bestehende Ergebnis-HTMLs nicht überschrieben werden)
+pythondir = os.path.join(maindir, "paphengst/python/")
+pythonfiles = os.listdir(pythondir)
+for item in pythonfiles:
+    if item[-3:] == ".py" and os.path.isfile(os.path.join(pythondir, item)):
+        htmlfile = os.path.join(resultsdir, item.replace(".py", "") + ".html")
+        if not os.path.isfile(htmlfile):
+            filehandle = open(htmlfile, "w")
+            filehandle.write(ergebnishtml)
+            filehandle.close()
+
 # Den Link zum HTML-Menü ausgeben
 username = os.path.basename(os.environ["HOME"])
-s = "Link zum HTML-Menü für PythonAnywhere Benutzer \"" + username + "\":"
-print("\n\n" + s + "\n" + "-" * len(s))
+linktext = "Link zum HTML-Menü für PythonAnywhere Benutzer \"" + username + "\":"
+print("\n\n" + linktext + "\n" + "-" * len(linktext))
 print(r"https://www.pythonanywhere.com/user/" + username +  r"/files/home/" + username + r"/paphengst/html/menu.html")
 print("(Am besten per Copy'n'paste in einem neuen Browser-Tab einfügen, öffnen und als Bookmark speichern.)")
-print("-" * len(s) + "\n")
+print("-" * len(linktext) + "\n")

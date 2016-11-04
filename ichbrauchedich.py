@@ -1,14 +1,10 @@
-import os
-
-# Hauptverzeichnis ermitteln
-maindir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../")
+# paphengstlib importieren
+from paphengstlib import *
 
 # Ordner "results" für zukünftige Ergebnisse erstellen
-resultsdir = os.path.join(maindir, "results/")
 os.makedirs(resultsdir, exist_ok=True)
 
 # Ordner "uploads" erstellen, wo die Daten für die Auswertung rein sollen
-uploaddir = os.path.join(maindir, "uploads/")
 os.makedirs(uploaddir, exist_ok=True)
 
 # Zur Erinnerung eine Datei mit Namen "!!! IN DIESEN ORDNER KOMMEN DIE DATEN FÜR DIE AUSWERTUNG !!!" erstellen
@@ -43,7 +39,7 @@ skripte = [
     ["232", "Michelson-Interferometer"],
     ["233", "Fourieroptik"],
     ["234", "Lichtquellen und Gitterspektroskopie"],
-    ["241", "Wechselstrom- eigenschaften von RCL-Gliedern"],
+    ["241", "Wechselstromeigenschaften von RCL-Gliedern"],
     ["242", "Spannungsverstärkung"],
     ["243", "Boltzmannkonstante Teil II Thermisches Rauschen"],
     ["245", "Induktion"],
@@ -55,7 +51,6 @@ skripte = [
     ]
 
 # Das HTML-Template einlesen
-htmldir = os.path.join(maindir, "paphengst/html/")
 filehandle = open(os.path.join(htmldir, "template.html"), "r")
 templatehtml = filehandle.read()
 filehandle.close()
@@ -70,6 +65,7 @@ menuhtmlnotizen = """<span>Ein paar Notizen: blabla<br /><br />
 Das Projekt auf GitHub: <a href="https://github.com/paphengst/paphengst">https://github.com/paphengst/paphengst</a>
 </span>
 <hr />"""
+#TODO Menü-Notizen schöner schreiben
 menuhtml = menuhtml.replace("<!-- snipsnap -->", menuhtmlnotizen + "\n<!-- snipsnap -->")
 
 # Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
@@ -94,7 +90,6 @@ ergebnishtmlnotizen = """<span>Versuch noch nicht ausgewertet. Skript starten mi
 ergebnishtml = ergebnishtml.replace("<!-- snipsnap -->", ergebnishtmlnotizen + "\n<!-- snipsnap -->")
 
 # Für jeden Versuch eine leere Ergebnis-HTML speichern (wobei bestehende Ergebnis-HTMLs nicht überschrieben werden)
-pythondir = os.path.join(maindir, "paphengst/python/")
 pythonfiles = os.listdir(pythondir)
 for item in pythonfiles:
     if item[-3:] == ".py" and os.path.isfile(os.path.join(pythondir, item)):

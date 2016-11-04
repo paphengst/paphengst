@@ -1,5 +1,5 @@
-import os
-import re
+# paphengstlib importieren
+from paphengstlib import *
 
 #Beispielcode für matplotlib-Plots
 """

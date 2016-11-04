@@ -4,9 +4,6 @@ import sys
 # Hauptverzeichnis ermitteln
 maindir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../")
 
-# Fehler ausgeben, falls kein Parameter angegeben
-#TODO
-
 # Skriptverzeichnis "python" nach Skript für angegebenem Parameter durchsuchen
 pythondir = os.path.join(maindir, "paphengst/python/")
 pythonfiles = os.listdir(pythondir)
@@ -20,11 +17,11 @@ for item in pythonfiles:
 # Überprüfen ob Skript gefunden
 if pythonfile == "":
     print("Nicht gefunden")
+    sys.exit()
 
-else:
-    # Datei ausführen
-    print("Ausführung wird startet")
-    os.system("python3 " + pythonfile)
+# Datei ausführen
+print("Ausführung wird startet")
+os.system("python3 " + pythonfile)
 
-    # Meldung ausgeben, dass beendet
-    print("Ausführung ist beendet")
+# Meldung ausgeben, dass beendet
+print("Ausführung ist beendet")

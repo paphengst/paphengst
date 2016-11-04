@@ -57,7 +57,7 @@ menuhtml = menuhtml.replace("<!-- snipsnap -->", menuhtmlnotizen + "\n<!-- snips
 
 # Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
 for skriptnummer, bezeichnung in skripte:
-    menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
+    menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\" href=\"../../results/" + skriptnummer + ".html\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
 
 # Das HTML für die "menu.html" speichern
 filehandle = open(os.path.join(htmldir, "menu.html"), "w")

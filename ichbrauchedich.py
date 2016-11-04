@@ -44,7 +44,8 @@ templatehtml = filehandle.read()
 filehandle.close()
 
 # HTML für die "menu.html" aus dem Template erzeugen
-menuhtml = templatehtml.replace("<title></title>", "<title>Menü (PAP Hengst)</title>")
+menuhtml = templatehtml
+menuhtml = menuhtml.replace("<title></title>", "<title>Menü (PAP Hengst)</title>")
 
 # Notizen in "menu.html" einfügen
 menuhtmlnotizen = """<span>Ein paar Notizen: blabla<br /><br />
@@ -64,7 +65,9 @@ filehandle.write(menuhtml)
 filehandle.close()
 
 # HTML für die Ergebnis-HTMLs aus dem Template erzeugen
-#TODO
+ergebnishtml = templatehtml
+ergebnishtml = ergebnishtml.replace("../../paphengst/html/", "../paphengst/html/")
+#TODO Textnotiz für leeren Versuch schöner schreiben
 ergebnishtmlnotizen = """<span>Versuch noch nicht ausgewertet. Skript starten mit blablabla
 </span>
 <hr />"""

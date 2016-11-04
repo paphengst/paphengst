@@ -17,6 +17,23 @@ filehandle.close()
 
 # Skripte aufzählen, die im Menü erscheinen sollen
 skripte = [
+    ["11", "Einführungsversuch"],
+    ["12", "Trägheitsmoment"],
+    ["13", "Resonanz"],
+    ["14", "Mathematisches Pendel"],
+    ["15", "Schiefe Ebene"],
+    ["21", "Elektrolyse"],
+    ["22", "Bestimmung der Elementarladung nach Millikan"],
+    ["23", "Strom- und Spannungsmessung"],
+    ["25", "Oszilloskop"],
+    ["26", "Schallgeschwindigkeit"],
+    ["31", "Optische Abbildung"],
+    ["33", "Prismenspektrometer"],
+    ["34", "Spektralphotometrie"],
+    ["35", "Fotoeffekt"],
+    ["41", "Temperaturmessung"],
+    ["42", "Spezifische Wärmekapazität fester Körper"],
+    ["---", ""],
     ["211", "Gekoppelte Pendel"],
     ["212", "Zähigkeit von Flüssigkeiten"],
     ["213", "Kreisel"],
@@ -57,7 +74,10 @@ menuhtml = menuhtml.replace("<!-- snipsnap -->", menuhtmlnotizen + "\n<!-- snips
 
 # Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
 for skriptnummer, bezeichnung in skripte:
-    menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\" href=\"../../results/" + skriptnummer + ".html\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
+    if skriptnummer == "---":
+        menuhtml = menuhtml.replace("<!-- snipsnap -->", "<br /><hr />\n<!-- snipsnap -->")
+    else:
+        menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\" href=\"../../results/" + skriptnummer + ".html\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
 
 # Das HTML für die "menu.html" speichern
 filehandle = open(os.path.join(htmldir, "menu.html"), "w")

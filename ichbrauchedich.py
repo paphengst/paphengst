@@ -71,7 +71,7 @@ ergebnishtml = ergebnishtml.replace("../../paphengst/html/", "../paphengst/html/
 ergebnishtmlnotizen = """<span>Versuch noch nicht ausgewertet. Skript starten mit blablabla
 </span>
 <hr />"""
-ergebnishtml = templatehtml.replace("<!-- snipsnap -->", ergebnishtmlnotizen + "\n<!-- snipsnap -->")
+ergebnishtml = ergebnishtml.replace("<!-- snipsnap -->", ergebnishtmlnotizen + "\n<!-- snipsnap -->")
 
 # Für jeden Versuch eine leere Ergebnis-HTML speichern (wobei bestehende Ergebnis-HTMLs nicht überschrieben werden)
 pythondir = os.path.join(maindir, "paphengst/python/")

@@ -10,7 +10,7 @@ maindir = os.path.abspath(maindir)
 
 # Weitere Verzeichnisse speichern
 resultsdir = os.path.join(maindir, "results/")
-uploaddir = os.path.join(maindir, "uploads/")
+uploadsdir = os.path.join(maindir, "uploads/")
 libdir = os.path.join(maindir, "paphengst/")
 pythondir = os.path.join(libdir, "python/")
 htmldir = os.path.join(libdir, "html/")

@@ -20,7 +20,7 @@ if pythonfile == "":
     sys.exit()
 
 # Datei ausführen
-print("Ausführung wird startet")
+print("Ausführung wird gestartet")
 os.system("python3 " + pythonfile)
 
 # Meldung ausgeben, dass beendet

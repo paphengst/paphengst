@@ -103,6 +103,6 @@ for item in pythonfiles:
 username = os.path.basename(os.environ["HOME"])
 linktext = "Link zum HTML-Menü für PythonAnywhere Benutzer \"" + username + "\":"
 print("\n\n" + linktext + "\n" + "-" * len(linktext))
-print(r"https://www.pythonanywhere.com/user/" + username +  r"/files/home/" + username + r"/paphengst/html/menu.html")
+print("https://www.pythonanywhere.com/user/" + username +  "/files" + os.path.join(libdir, "html/menu.html"))
 print("(Am besten per Copy'n'paste in einem neuen Browser-Tab einfügen, öffnen und als Bookmark speichern.)")
 print("-" * len(linktext) + "\n")

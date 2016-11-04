@@ -1,7 +1,5 @@
-import os
-
-# Hauptverzeichnis ermitteln
-maindir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../")
+# paphengstlib importieren
+from paphengstlib import *
 
 # Alle Dateien und Ordner im Ordner "paphengst" und seinen Unterordnern löschen
 for path, folders, files in os.walk(os.path.join(maindir, "paphengst/"), topdown=False):

@@ -1,11 +1,7 @@
 # paphengstlib importieren
 from paphengstlib import *
 
-# Hauptverzeichnis ermitteln
-maindir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../")
-
 # Skriptverzeichnis "python" nach Skript für angegebenem Parameter durchsuchen
-pythondir = os.path.join(maindir, "paphengst/python/")
 pythonfiles = os.listdir(pythondir)
 pythonfile = ""
 for item in pythonfiles:

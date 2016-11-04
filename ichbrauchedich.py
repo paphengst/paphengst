@@ -37,7 +37,7 @@ skripte = [
     ["256", "Röntgenfluoreszenz"],
     ]
 
-# Die Template-HTML einlesen
+# Das HTML-Template einlesen
 htmldir = os.path.join(maindir, "paphengst/html/")
 filehandle = open(os.path.join(htmldir, "template.html"), "r")
 templatehtml = filehandle.read()
@@ -64,7 +64,11 @@ filehandle.write(menuhtml)
 filehandle.close()
 
 # HTML für die Ergebnis-HTMLs aus dem Template erzeugen
-ergebnishtml = templatehtml.replace("<title></title>", "<title>Versuch (PAP Hengst)</title>")
+#TODO
+ergebnishtmlnotizen = """<span>Versuch noch nicht ausgewertet. Skript start mit blablabla
+</span>
+<hr />"""
+ergebnishtml = templatehtml.replace("<!-- snipsnap -->", ergebnishtmlnotizen + "\n<!-- snipsnap -->")
 
 # Für jeden Versuch eine leere Ergebnis-HTML speichern (wobei bestehende Ergebnis-HTMLs nicht überschrieben werden)
 pythondir = os.path.join(maindir, "paphengst/python/")
@@ -74,7 +78,7 @@ for item in pythonfiles:
         htmlfile = os.path.join(resultsdir, item.replace(".py", "") + ".html")
         if not os.path.isfile(htmlfile):
             filehandle = open(htmlfile, "w")
-            filehandle.write(ergebnishtml)
+            filehandle.write(ergebnishtml.replace("<title></title>", "<title>Versuch " + item.replace(".html", "") + " (PAP Hengst)</title>"))
             filehandle.close()
 
 # Den Link zum HTML-Menü ausgeben

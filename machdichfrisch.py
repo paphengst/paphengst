@@ -9,7 +9,7 @@ for path, folders, files in os.walk(libdir, topdown=False):
         os.rmdir(os.path.join(path, folder))
 
 # Dateien frisch von Github laden
-os.system("git clone --depth=1 https://github.com/paphengst/paphengst")
+os.system("git clone --depth=1 https://github.com/paphengst/paphengst.git \"" + libdir + "\"")
 
 # Dateistruktur (neu) initialisieren
 importlib.import_module("ichbrauchedich", package=None)

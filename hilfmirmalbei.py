@@ -1,7 +1,3 @@
-import os
-import sys
-import importlib
-
 # paphengstlib importieren
 from paphengstlib import *
 

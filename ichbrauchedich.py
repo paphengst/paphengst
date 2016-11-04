@@ -55,7 +55,6 @@ Das Projekt auf GitHub: <a href="https://github.com/paphengst/paphengst">https:/
 menuhtml = menuhtml.replace("<!-- snipsnap -->", menuhtmlnotizen + "\n<!-- snipsnap -->")
 
 # Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
-menuhtml = templatehtml.replace("<title></title>", "<title>Menü (PAP Hengst)</title>")
 for skriptnummer, bezeichnung in skripte:
     menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\">" + str(skriptnummer) + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
 

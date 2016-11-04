@@ -43,6 +43,17 @@ filehandle = open(os.path.join(htmldir, "template.html"), "r")
 templatehtml = filehandle.read()
 filehandle.close()
 
+# HTML für die "menu.html" aus dem Template erzeugen
+menuhtml = templatehtml.replace("<title></title>", "<title>Menü (PAP Hengst)</title>")
+
+# Notizen in "menu.html" einfügen
+menuhtmlnotizen = """<span>Ein paar Notizen: blabla<br /><br />
+<a href="../../uploads">Upload-Ordner</a>
+Das Projekt auf GitHub: <a href="https://github.com/paphengst/paphengst">https://github.com/paphengst/paphengst</a>
+</span>
+<hr />"""
+menuhtml = menuhtml.replace("<!-- snipsnap -->", menuhtmlnotizen + "\n<!-- snipsnap -->")
+
 # Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
 menuhtml = templatehtml.replace("<title></title>", "<title>Menü (PAP Hengst)</title>")
 for skriptnummer, bezeichnung in skripte:

@@ -64,24 +64,15 @@ for skriptnummer, bezeichnung in skripte:
         menuhtmlcode += "<a class=\"menuitem\" href=\"../../results/" + skriptnummer + ".html\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n"
 htmlschreiben(os.path.join(htmldir, "menu.html"), "Menü (PAP Hengst)", menuhtmlcode)
 
-# HTML für die Ergebnis-HTMLs aus dem Template erzeugen
-ergebnishtml = templatehtml
-ergebnishtml = ergebnishtml.replace("../../paphengst/html/", "../paphengst/html/")
-#TODO Textnotiz für leeren Versuch schöner schreiben
-ergebnishtmlnotizen = """<span>Versuch noch nicht ausgewertet. Skript starten mit blablabla
+# Für jeden Versuch eine leere Ergebnis-HTML speichern (wobei bestehende Ergebnis-HTMLs nicht überschrieben werden)
+ergebnishtmlcode = """<span>Versuch noch nicht ausgewertet. Skript starten mit blablabla
 </span>
 <hr />"""
-ergebnishtml = ergebnishtml.replace("<!-- snipsnap -->", ergebnishtmlnotizen + "\n<!-- snipsnap -->")
-
-# Für jeden Versuch eine leere Ergebnis-HTML speichern (wobei bestehende Ergebnis-HTMLs nicht überschrieben werden)
-pythonfiles = os.listdir(pythondir)
-for item in pythonfiles:
-    if item[-3:] == ".py" and os.path.isfile(os.path.join(pythondir, item)):
-        htmlfile = os.path.join(resultsdir, item.replace(".py", "") + ".html")
-        if not os.path.isfile(htmlfile):
-            filehandle = open(htmlfile, "w")
-            filehandle.write(ergebnishtml.replace("<title></title>", "<title>Versuch " + item.replace(".py", "") + " (PAP Hengst)</title>"))
-            filehandle.close()
+#TODO Textnotiz für leeren Versuch schöner schreiben
+for skriptnummer, bezeichnung in skripte:
+    ergebnishtmldatei = os.path.join(resultsdir, skriptnummer + ".html")
+    if not os.path.isfile(ergebnishtmldatei):
+        htmlschreiben(ergebnishtmldatei, "Versuch " + skriptnummer + " (PAP Hengst)", ergebnishtmlcode)
 
 # Den Link zum HTML-Menü ausgeben
 username = os.path.basename(os.environ["HOME"])

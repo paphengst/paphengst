@@ -50,35 +50,19 @@ skripte = [
     ["256", "Röntgenfluoreszenz"],
     ]
 
-# Das HTML-Template einlesen
-filehandle = open(os.path.join(htmldir, "template.html"), "r")
-templatehtml = filehandle.read()
-filehandle.close()
-
-# HTML für die "menu.html" aus dem Template erzeugen
-menuhtml = templatehtml
-menuhtml = menuhtml.replace("<title></title>", "<title>Menü (PAP Hengst)</title>")
-
-# Notizen in "menu.html" einfügen
-menuhtmlnotizen = """<span>Ein paar Notizen: blabla<br /><br />
+# Das HTML-Menü in "menu.html" erzeugen
+menuhtmlcode = """<span>Ein paar Notizen: blabla<br /><br />
 <a href="../../uploads">Upload-Ordner</a>
 Das Projekt auf GitHub: <a href="https://github.com/paphengst/paphengst">https://github.com/paphengst/paphengst</a>
 </span>
 <hr />"""
 #TODO Menü-Notizen schöner schreiben
-menuhtml = menuhtml.replace("<!-- snipsnap -->", menuhtmlnotizen + "\n<!-- snipsnap -->")
-
-# Aus dem Array mit den Skripten eine Liste fürs HTML erstellen
 for skriptnummer, bezeichnung in skripte:
     if skriptnummer == "---":
-        menuhtml = menuhtml.replace("<!-- snipsnap -->", "<br /><hr />\n<!-- snipsnap -->")
+        menuhtmlcode += "<br /><hr />\n"
     else:
-        menuhtml = menuhtml.replace("<!-- snipsnap -->", "<a class=\"menuitem\" href=\"../../results/" + skriptnummer + ".html\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n<!-- snipsnap -->")
-
-# Das HTML für die "menu.html" speichern
-filehandle = open(os.path.join(htmldir, "menu.html"), "w")
-filehandle.write(menuhtml)
-filehandle.close()
+        menuhtmlcode += "<a class=\"menuitem\" href=\"../../results/" + skriptnummer + ".html\">" + skriptnummer + "<span>" + bezeichnung + "</span></a>\n"
+htmlschreiben(os.path.join(htmldir, "menu.html"), "Menü (PAP Hengst)", menuhtmlcode)
 
 # HTML für die Ergebnis-HTMLs aus dem Template erzeugen
 ergebnishtml = templatehtml

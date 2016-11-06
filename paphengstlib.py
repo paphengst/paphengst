@@ -97,7 +97,7 @@ def latexkompilieren(templatedazu = True, aufrufendesskript = ""):
     #TODO Sortieren notwendig?
     # HTML erzeugen
     htmltitel = "Versuch " + skriptnummer + " (PAP Hengst)"
-    htmlcode = "<a href=\"http://www.google.de\"><button><span></span>PDF-Datei downloaden</button></a>\n"
+    htmlcode = "<a href=\"" + skriptnummer + ".pdf" + "\"><button><span></span>PDF-Datei downloaden</button></a>\n"
     for pngdatei in gefundenepngs():
         htmlcode += "<br />\n"
         htmlcode += "<img src=\"" + pngdatei + "\" />\n"
